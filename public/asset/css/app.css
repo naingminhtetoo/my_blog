@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;1,500&display=swap');
+:root{
+ --light-primary:#007bff1c;
+ --light-primary-2:#007bff57;
+}
+
+*{
+    font-family: 'Poppins', sans-serif;
+}
+.sidebar{
+}
+.main-content{
+    background-color: #e5e5e5 !important;
+
+}
+.sidebar-close{
+    top: 0;
+    bottom: 0;
+    right: 14px;
+    width: 25px;
+    height: 25px;
+}
+.sidebar-profile{
+    /*height: 150px;*/
+}
+.sidebar-menu-item{
+    border-left:3.5px solid var(--white);
+    background-image: linear-gradient(to left,
+    transparent,
+    transparent 50%,
+    var(--light-primary) 50%,
+    var(--light-primary));
+    background-position: 100% 0;
+    background-size: 200% 100%;
+    transition: all .25s ease-in;
+}
+.sidebar-menu-item a:hover{
+    text-decoration: none !important;
+}
+.sidebar-menu-item:hover{
+    border-left:3.5px solid var(--primary);
+    background-position: 0 0;
+}
+.sidebar-menu-item.active{
+    border-left:3.5px solid var(--primary);
+    background-color: var(--light-primary);
+}
+.sidebar-menu-item.active:hover{
+    background-position: 100% 0;
+}
+.sidebar-menu-item.active a{
+    color: var(--primary) !important;
+}
+.sidebar-menu-item.active .totalNum{
+    color: var(--primary) !important;
+}
+.menu-title{
+    font-size: .85rem;
+    letter-spacing: 1.5px;
+}
+.menu-spacer{
+}
+
+.search-box{
+    position: relative;
+    max-width: 250px;
+}
+.search-box input{
+    max-width: 250px;
+    outline: none;
+}
+.search-box button{
+    position: absolute;
+    top: 0;
+    right: 0;
+
+}
+.search-box button i{
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.cursor-pointer{
+    cursor: pointer !important;
+}
+.card-full-screen{
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    z-index: 1500;
+    width: 100%;
+    height: 100vh;
+    overflow: scroll;
+}
+
+
+@media (max-width: 992px) {
+    .sidebar{
+        max-width: 250px;
+        position: fixed;
+        top: 0;
+        z-index: 100;
+        margin-left:-100%;
+        transition: .5s;
+    }
+    .sidebar.active{
+        margin-left: 0%;
+    }
+    body{
+    }
+    .main-body{
+    }
+}
