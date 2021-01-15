@@ -11,18 +11,19 @@
                     @slot('button')  @endslot
                     @slot('body')
                         <img src="{{ isset(Auth::user()->photo) ? asset('storage/profile/'.Auth::user()->photo) : asset('img/profile_default.png') }}" class="d-block w-50 mx-auto rounded-circle my-3" alt="">
-                        <form action="" method="post" enctype="multipart/form-data">
+                        <form action="{{ route("profile.photo.update") }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="d-flex justify-content-between align-items-end">
                                 <div class="input-group">
-                                        <input type="file" class="form-control-file" name="photo" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
-                                        <button class="btn btn-primary mt-3" type="submit" id="inputGroupFileAddon04"><i class="fas fa-upload"></i> Change</button>
+                                        <input type="file" class="form-control-file" name="photo" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" required>
+                                    @error("photo")
+                                    <small class="font-weight-bold text-danger text-center">{{ $message }}</small>
+                                    @enderror
+                                        <button class="btn btn-primary mt-3" type="submit" id="inputGroupFileAddon04"><i class="fas fa-upload"></i> Change photo</button>
                                 </div>
                             </div>
 
-                            @error("photo")
-                            <small class="font-weight-bold text-danger text-center">{{ $message }}</small>
-                            @enderror
+
                         </form>
                     @endslot
                 @endcomponent

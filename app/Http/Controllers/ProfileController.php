@@ -34,7 +34,19 @@ class ProfileController extends Controller
 
     }
     public function updatePhoto(Request $request){
-        return $request;
+        $request->validate([
+            "photo" => "required|mimetypes:image/jpeg,image/png|file|max:2500"
+        ]);
+
+        $dir="public/profile";
+        $newName = uniqid()."_photo.".$request->file("photo")->getClientOriginalExtension();
+        $request->file("photo")->storeAs($dir,$newName);
+
+        $user = User::find(Auth::id());
+        $user->photo = $newName;
+        $user->update();
+
+        return redirect()->route("profile")->with("toast","Photo change Successful");
     }
 
     public function updatePassword(Request $request){

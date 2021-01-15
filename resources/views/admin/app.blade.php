@@ -40,7 +40,7 @@
         </div>
     </div>
 </div>
-
+@include("component.search-box")
 @include("component.toast")
 
 {{--fontawesome js--}}

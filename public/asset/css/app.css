@@ -2,6 +2,7 @@
 :root{
  --light-primary:#007bff1c;
  --light-primary-2:#007bff57;
+    --bg-light:#e5e5e5;
 }
 
 *{
@@ -10,8 +11,7 @@
 .sidebar{
 }
 .main-content{
-    background-color: #e5e5e5 !important;
-
+    background-color:var(--bg-light) !important;
 }
 .sidebar-close{
     top: 0;
@@ -105,6 +105,14 @@
 }
 
 
+
+/*login start*/
+
+.login-box{
+    background-color: var(--bg-light);
+}
+
+/*login end*/
 @media (max-width: 992px) {
     .sidebar{
         max-width: 250px;
